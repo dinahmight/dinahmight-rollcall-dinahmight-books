@@ -1,6 +1,10 @@
 // Fill in each URL the moment the book goes live on that retailer.
 // Leaving a value as null shows a disabled "Coming soon" state instead of a broken link.
 // availableFrom (YYYY-MM-DD) gates a filled-in url so the button flips live automatically on that date.
+//
+// NOTE: The discounted Hardcover/Paperback (IngramSpark) links are intentionally NOT listed
+// here. They only appear on the email-gated /buy page (see hardcoverBuyUrl / paperbackBuyUrl
+// below). This array powers the public <WhereToBuy /> component shown on The Book page.
 export type RetailerLink = {
   name: string;
   url: string | null;
@@ -8,16 +12,6 @@ export type RetailerLink = {
 };
 
 export const retailerLinks: RetailerLink[] = [
-  {
-    name: "Hardcover (IngramSpark)",
-    url: "https://shop.ingramspark.com/b/084?params=8usP6AqpWw6Fgz6ksVj73gwsphITUjumTllI88AjuAe",
-    availableFrom: "2026-09-28",
-  },
-  {
-    name: "Paperback (IngramSpark)",
-    url: "https://shop.ingramspark.com/b/084?params=ETqdj4S66sTpt4Nf6JcabjUewGrvZlhkk1NCcsHTedC",
-    availableFrom: "2026-09-28",
-  },
   {
     name: "Amazon",
     url: "https://a.co/d/0d0qoTfM",
