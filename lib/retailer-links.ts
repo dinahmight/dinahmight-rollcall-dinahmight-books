@@ -18,9 +18,21 @@ export const retailerLinks: RetailerLink[] = [
     url: "https://shop.ingramspark.com/b/084?params=ETqdj4S66sTpt4Nf6JcabjUewGrvZlhkk1NCcsHTedC",
     availableFrom: "2026-09-28",
   },
-  { name: "Amazon", url: null },
-  { name: "Barnes & Noble", url: null },
-  { name: "Walmart", url: null },
+  {
+    name: "Amazon",
+    url: "https://a.co/d/0d0qoTfM",
+    availableFrom: "2026-10-01",
+  },
+  {
+    name: "Barnes & Noble",
+    url: "https://www.barnesandnoble.com/w/roll-call-dinah-cochran/1151457856?ean=9781972750650",
+    availableFrom: "2026-10-01",
+  },
+  {
+    name: "Walmart",
+    url: "https://www.walmart.com/ip/Roll-Call-A-31-Day-Gratitude-Journey-Through-the-Names-of-God-Paperback-9781972750643/21101404146?classType=REGULAR&from=/search",
+    availableFrom: "2026-10-01",
+  },
 ];
 
 export const ministryUrl = "https://www.iknowaguyministries.org";
