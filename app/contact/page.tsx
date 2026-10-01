@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Mail, CheckCircle2, AlertCircle, Loader2, ExternalLink } from "lucide-react";
-import { hardcoverBuyUrl, paperbackBuyUrl } from "@/lib/retailer-links";
+import Link from "next/link";
+import { Mail, CheckCircle2, AlertCircle, Loader2, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
   const [email, setEmail] = useState("");
@@ -37,6 +37,10 @@ export default function ContactPage() {
         return;
       }
 
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("rollcall_discount_unlocked", "true");
+      }
+
       setStatus("success");
     } catch {
       setErrorMessage("Something went wrong. Please try again.");
@@ -48,7 +52,7 @@ export default function ContactPage() {
     <main className="grain mx-auto flex min-h-[70vh] max-w-2xl flex-col items-center justify-center px-6 py-24 text-center">
       <Mail className="h-10 w-10 text-gold" />
       <h1 className="mt-6 font-display text-4xl text-[#17203a] md:text-5xl">
-        Get the Book
+        Get the Discount
       </h1>
       <p className="mt-4 font-body text-[#17203a]/70">
         Enter your name and email to unlock <strong>15-20% off</strong> ROLL
@@ -61,27 +65,15 @@ export default function ContactPage() {
           <div className="flex items-center gap-3 border border-[#b8862f]/40 bg-white/70 px-8 py-6 text-left">
             <CheckCircle2 className="h-6 w-6 shrink-0 text-gold" />
             <p className="font-body text-sm text-[#17203a]/85">
-              Thank you, {name || "friend"}! Your discount is unlocked below.
+              Thank you, {name || "friend"}! Your discount is unlocked.
             </p>
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href={hardcoverBuyUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="flex flex-1 items-center justify-center gap-2 bg-[#d4af5a] px-8 py-4 font-body text-sm uppercase tracking-[0.15em] text-[#0b1220] transition-transform hover:scale-[1.02]"
-            >
-              Buy Now — Hardcover <ExternalLink className="h-4 w-4" />
-            </a>
-            <a
-              href={paperbackBuyUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="flex flex-1 items-center justify-center gap-2 border border-[#17203a]/30 px-8 py-4 font-body text-sm uppercase tracking-[0.15em] text-[#17203a] transition-colors hover:border-[#b8862f] hover:text-[#b8862f]"
-            >
-              Buy Now — Paperback <ExternalLink className="h-4 w-4" />
-            </a>
-          </div>
+          <Link
+            href="/buy"
+            className="inline-flex w-full items-center justify-center gap-2 bg-[#d4af5a] px-8 py-4 font-body text-sm uppercase tracking-[0.15em] text-[#0b1220] transition-transform hover:scale-[1.02]"
+          >
+            View My Discount & Buy the Book <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="mt-10 w-full space-y-4">
