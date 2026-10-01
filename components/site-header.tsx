@@ -11,7 +11,7 @@ const links = [
   { href: "/roll-call", label: "The Story" },
   { href: "/about", label: "About Dinah" },
   { href: "/ministry", label: "Our Mission" },
-  { href: "/contact", label: "Get the Book" },
+  { href: "/contact", label: "Get the Discount" },
 ];
 
 export function SiteHeader() {
