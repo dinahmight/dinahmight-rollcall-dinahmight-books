@@ -1,9 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Clock } from "lucide-react";
-import { WhereToBuy } from "@/components/where-to-buy";
+import { ArrowRight, Clock, Lock } from "lucide-react";
 import {
   hardcoverBuyUrl,
   hardcoverAvailableFrom,
@@ -79,6 +79,37 @@ function FormatCard({ label, buyUrl, availableFrom, qrCodeUrl }: FormatCardProps
 }
 
 export default function BuyPage() {
+  const [unlocked, setUnlocked] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setUnlocked(window.localStorage.getItem("rollcall_discount_unlocked") === "true");
+  }, []);
+
+  if (unlocked === null) {
+    return null;
+  }
+
+  if (!unlocked) {
+    return (
+      <main className="grain mx-auto flex min-h-[60vh] max-w-xl flex-col items-center justify-center px-6 py-24 text-center">
+        <Lock className="h-10 w-10 text-gold" />
+        <h1 className="mt-6 font-display text-4xl text-[#17203a]">
+          Unlock Your Discount First
+        </h1>
+        <p className="mt-4 font-body text-[#17203a]/70">
+          Enter your name and email on the Get the Discount page to unlock
+          15-20% off and reveal your hardcover and paperback QR codes.
+        </p>
+        <Link
+          href="/contact"
+          className="mt-8 inline-flex items-center gap-2 bg-[#d4af5a] px-8 py-4 font-body text-sm uppercase tracking-[0.15em] text-[#0b1220] transition-transform hover:scale-[1.02]"
+        >
+          Get the Discount <ArrowRight className="h-4 w-4" />
+        </Link>
+      </main>
+    );
+  }
+
   return (
     <main className="grain mx-auto max-w-5xl px-6 py-24">
       <p className="font-body text-sm uppercase tracking-[0.3em] text-[#b8862f]">
@@ -88,8 +119,8 @@ export default function BuyPage() {
         Own ROLL CALL<span className="text-gold">!</span>
       </h1>
       <p className="mt-3 max-w-xl font-display text-xl italic text-[#17203a]/70">
-        A 31-Day Gratitude Journey Through the Names of God &mdash; choose
-        your format.
+        A 31-Day Gratitude Journey Through the Names of God &mdash; your
+        discount is unlocked. Choose your format.
       </p>
 
       <div className="mt-14 grid grid-cols-1 gap-14 md:grid-cols-2 md:items-start">
@@ -119,18 +150,12 @@ export default function BuyPage() {
         </div>
       </div>
 
-      <div className="mt-16 gold-divider" />
-
-      <div className="mt-14 max-w-3xl">
-        <WhereToBuy />
-      </div>
-
       <p className="mt-10 font-body text-sm text-[#17203a]/70">
-        Not ready to buy yet?{" "}
-        <Link href="/contact" className="text-[#b8862f] hover:underline">
-          Join the launch list
+        Prefer a digital copy or a different retailer? Visit{" "}
+        <Link href="/book" className="text-[#b8862f] hover:underline">
+          The Book
         </Link>{" "}
-        for updates and early access.
+        page for Amazon, Barnes & Noble, and Walmart.
       </p>
     </main>
   );
