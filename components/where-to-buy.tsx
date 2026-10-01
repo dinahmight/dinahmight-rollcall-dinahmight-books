@@ -51,9 +51,7 @@ export function WhereToBuy() {
         })}
       </div>
       <p className="mt-3 font-body text-xs text-[#17203a]/45">
-        Hardcover available September 28, 2026. Other retailer links go live
-        October 1, 2026 — buttons activate automatically the moment each one
-        is ready.
+        Digital copies are available through these retailers.
       </p>
     </div>
   );
