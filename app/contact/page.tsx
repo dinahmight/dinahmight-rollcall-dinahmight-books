@@ -37,10 +37,6 @@ export default function ContactPage() {
         return;
       }
 
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("rollcall_discount_unlocked", "true");
-      }
-
       setStatus("success");
     } catch {
       setErrorMessage("Something went wrong. Please try again.");
@@ -52,12 +48,13 @@ export default function ContactPage() {
     <main className="grain mx-auto flex min-h-[70vh] max-w-2xl flex-col items-center justify-center px-6 py-24 text-center">
       <Mail className="h-10 w-10 text-gold" />
       <h1 className="mt-6 font-display text-4xl text-[#17203a] md:text-5xl">
-        Get the Discount
+        Join the Family
       </h1>
       <p className="mt-4 font-body text-[#17203a]/70">
-        Enter your name and email to unlock <strong>15-20% off</strong> ROLL
-        CALL! in paperback or hardcover, plus occasional prayers, journal
-        prompts, and ROLL CALL! updates. No spam — ever.
+        Join the ROLL CALL! family. Enter your name and email and you&apos;ll
+        receive additional devotionals, gratitude prayers, and updates on how
+        your purchases are impacting lives through I Know A Guy Ministries
+        (IKAGM).
       </p>
 
       {status === "success" ? (
@@ -65,14 +62,15 @@ export default function ContactPage() {
           <div className="flex items-center gap-3 border border-[#b8862f]/40 bg-white/70 px-8 py-6 text-left">
             <CheckCircle2 className="h-6 w-6 shrink-0 text-gold" />
             <p className="font-body text-sm text-[#17203a]/85">
-              Thank you, {name || "friend"}! Your discount is unlocked.
+              Welcome to the family, {name || "friend"}! Watch your inbox for
+              devotionals, gratitude prayers, and ministry updates.
             </p>
           </div>
           <Link
             href="/buy"
             className="inline-flex w-full items-center justify-center gap-2 bg-[#d4af5a] px-8 py-4 font-body text-sm uppercase tracking-[0.15em] text-[#0b1220] transition-transform hover:scale-[1.02]"
           >
-            View My Discount & Buy the Book <ArrowRight className="h-4 w-4" />
+            Buy the Book <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       ) : (
@@ -129,14 +127,14 @@ export default function ContactPage() {
             className="flex w-full items-center justify-center gap-2 bg-[#d4af5a] px-8 py-4 font-body text-sm uppercase tracking-[0.15em] text-[#0b1220] transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
           >
             {status === "loading" && <Loader2 className="h-4 w-4 animate-spin" />}
-            {status === "loading" ? "Submitting..." : "Unlock My Discount"}
+            {status === "loading" ? "Submitting..." : "Join the Family"}
           </button>
         </form>
       )}
 
       <p className="mt-8 font-body text-xs text-[#17203a]/45">
-        No spam &mdash; just your discount, occasional prayers and journal
-        prompts, and ROLL CALL! updates.
+        No spam &mdash; just devotionals, gratitude prayers, and updates on
+        how purchases are impacting lives through IKAGM.
       </p>
     </main>
   );
