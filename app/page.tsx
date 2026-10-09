@@ -49,7 +49,7 @@ export default function HomePage() {
               href="/contact"
               className="inline-flex items-center gap-2 bg-[#d4af5a] px-8 py-4 font-body text-sm uppercase tracking-[0.15em] text-[#0b1220] transition-transform hover:scale-[1.03]"
             >
-              Get the Discount (15-20% Off) <ArrowRight className="h-4 w-4" />
+              Join the Family <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/book"
