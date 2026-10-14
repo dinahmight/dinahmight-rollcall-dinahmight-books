@@ -81,6 +81,34 @@ export default function BuyPage() {
           </div>
         </div>
       </div>
+
+      {/* Video: dramatized peek inside the book's introduction */}
+      <section className="mt-20 border-t border-[#b8862f]/25 pt-16">
+        <div className="mx-auto max-w-sm text-center">
+          <p className="font-body text-sm uppercase tracking-[0.3em] text-[#b8862f]">
+            Watch
+          </p>
+          <h2 className="mt-3 font-display text-3xl text-[#17203a]">
+            A Peek Inside the Introduction
+          </h2>
+          <p className="mt-3 font-body text-sm leading-relaxed text-[#17203a]/70">
+            A dramatized look at the opening pages of ROLL CALL! Press play and
+            turn your sound on.
+          </p>
+          <div className="mt-8 border-4 border-[#b8862f]/60 bg-white p-1 shadow-lg">
+            <video
+              src="https://g.tlcdn.com/gen/0a8b167aa0674bd890cc238161741789.mp4"
+              poster="https://g.tlcdn.com/gen/1dd526918bec445babf527c793acf762.jpeg"
+              controls
+              playsInline
+              preload="metadata"
+              className="w-full"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
